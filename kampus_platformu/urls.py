@@ -13,4 +13,5 @@ urlpatterns = [
     path('kayit/', kullanici_views.kayit, name='kayit'),
     path('giris/', kullanici_views.giris, name='giris'),
     path('cikis/', kullanici_views.cikis, name='cikis'),
+    path('profil/', kullanici_views.profil, name='profil'),
 ]
