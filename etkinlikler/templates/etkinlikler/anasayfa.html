@@ -2,28 +2,56 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kampüs Etkinlik Platformu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body { background-color: #f8f9fa; }
-        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0; }
-        .card { border: none; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
-    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">🎓 Kampüs Etkinlik</a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="/giris/">Giriş Yap</a>
-                <a class="nav-link" href="/kayit/">Kayıt Ol</a>
-                <a class="nav-link" href="/admin/">Admin</a>
-            </div>
-        </div>
-    </nav>
 
-    <div class="hero text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Kampüs Etkinliklerine Katıl!</h1>
-            <p class="lead">Kulüpleri keşfet, etkinliklere kayıt ol, QR kod ile katılımını doğrula</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="/">🎓 Kampüs Platformu</a>
+    <div class="navbar-nav ms-auto">
+      <a class="nav-link" href="/giris/">Giriş Yap</a>
+      <a class="nav-link" href="/kayit/">Kayıt Ol</a>
+      <a class="nav-link" href="/admin/">Admin</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div class="text-center mb-5">
+    <h1>🎉 Kampüs Etkinliklerine Katıl!</h1>
+    <p class="lead">Üniversite hayatını dolu dolu yaşa.</p>
+  </div>
+
+  <h2>📅 Yaklaşan Etkinlikler</h2>
+  <hr>
+
+  {% if etkinlikler %}
+    <div class="row">
+      {% for etkinlik in etkinlikler %}
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ etkinlik.baslik }}</h5>
+            <ul class="list-unstyled mt-3">
+              <li>🗓️ <strong>Tarih:</strong> {{ etkinlik.tarih|date:"d.m.Y H:i" }}</li>
+              <li>📍 <strong>Konum:</strong> {{ etkinlik.konum }}</li>
+              <li>🏷️ <strong>Kategori:</strong> {{ etkinlik.kategori }}</li>
+              <li>👤 <strong>Organizatör:</strong> {{ etkinlik.organizator }}</li>
+              <li>📝 <strong>Açıklama:</strong> {{ etkinlik.aciklama }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-info">Şu an yayında etkinlik bulunmuyor.</div>
+  {% endif %}
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
