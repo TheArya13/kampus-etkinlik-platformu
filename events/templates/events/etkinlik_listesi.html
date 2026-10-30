@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Etkinlikler</title>
+</head>
+<body>
+    <h1>Etkinlikler</h1>
+    {% for etkinlik in etkinlikler %}
+        <div>
+            <h2>{{ etkinlik.baslik }}</h2>
+            <p>{{ etkinlik.tarih }}</p>
+            <p>{{ etkinlik.konum }}</p>
+            <a href="/etkinlik/{{ etkinlik.pk }}/">Detay</a>
+        </div>
+    {% empty %}
+        <p>Henüz etkinlik yok.</p>
+    {% endfor %}
+</body>
+</html>

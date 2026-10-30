@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from etkinlikler import views as etkinlik_views
+from events import views as etkinlik_views
 from kullanicilar import views as kullanici_views
 
 urlpatterns = [
@@ -14,4 +14,5 @@ urlpatterns = [
     path('giris/', kullanici_views.giris, name='giris'),
     path('cikis/', kullanici_views.cikis, name='cikis'),
     path('profil/', kullanici_views.profil, name='profil'),
+    path('etkinlikler/', etkinlik_views.etkinlik_listesi, name='etkinlik_listesi'),
 ]
