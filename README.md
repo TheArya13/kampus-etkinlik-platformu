@@ -41,6 +41,7 @@ python manage.py runserver
 | Hafta 3 | Kurulum, Mimari ve Veri Modeli | ✅ Tamamlandı |
 | Hafta 4 | Veritabanı Tasarımı ve Admin Paneli | ✅ Tamamlandı |
 | Hafta 5 | Kullanıcı Yönetimi ve Kimlik Doğrulama | ✅ Tamamlandı |
+| Hafta 6 | Etkinlik Yönetimi Modülü | ✅ Tamamlandı |
 
 ## 🔗 Özellikler
 
