@@ -10,8 +10,7 @@ def etkinlik_detay(request, pk):
     etkinlik = get_object_or_404(Etkinlik, pk=pk)
     return render(request, 'events/etkinlik_detay.html', {'etkinlik': etkinlik})
 def anasayfa(request):
-    etkinlikler = Etkinlik.objects.filter(durum='yayinda')
-    return render(request, 'events/etkinlik_listesi.html', {'etkinlikler': etkinlikler})
+    return render(request, 'etkinlikler/anasayfa.html', {})
 
 def etkinlik_kayit(request, pk):
     if not request.user.is_authenticated:
