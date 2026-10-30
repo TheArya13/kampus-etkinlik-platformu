@@ -1,11 +1,11 @@
 # 🎓 Kampüs Etkinlik ve Kulüp Yönetim Platformu
 
-Bingöl Üniversitesi Bilişim Teknolojileri MYO  
+Bingöl Üniversitesi Bilişim Teknolojileri MYO
 Bilgisayar Uygulamaları I - Proje P17
 
-## 📌 Proje Hakkında
+## 🚀 Proje Hakkında
 
-Öğrencilerin kampüs etkinliklerine kayıt olabileceği, kulüpleri takip edebileceği ve QR kod ile yoklama yapılabileceği bir web platformudur.
+Öğrencilerin kampüs etkinliklerine kayıt olabileceği, kulüpleri takip edebileceği ve QR kod ile yoklama yapılabileceği bir web platformu.
 
 ## 🛠️ Kullanılan Teknolojiler
 
@@ -19,7 +19,7 @@ Bilgisayar Uygulamaları I - Proje P17
 
 ```bash
 # Projeyi klonla
-git clone https://github.com/251161021/kampus-etkinlik-platformu.git
+git clone https://github.com/TheArya13/kampus-etkinlik-platformu.git
 
 # Dizine gir
 cd kampus-etkinlik-platformu
@@ -34,8 +34,16 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## 👤 Geliştirici
+## ✅ Tamamlanan Haftalar
 
-- **Öğrenci No:** 251161021  
-- **Bölüm:** Bilgisayar Programcılığı  
-- **Ders:** Bilgisayar Uygulamaları I
+| Hafta | Konu | Durum |
+|-------|------|-------|
+| Hafta 3 | Kurulum, Mimari ve Veri Modeli | ✅ Tamamlandı |
+| Hafta 4 | Veritabanı Tasarımı ve Admin Paneli | ✅ Tamamlandı |
+| Hafta 5 | Kullanıcı Yönetimi ve Kimlik Doğrulama | ✅ Tamamlandı |
+
+## 🔗 Özellikler
+
+- Kulüp ve etkinlik listeleme
+- Etkinliğe kayıt olma
+- Kullanıcı kayıt /
