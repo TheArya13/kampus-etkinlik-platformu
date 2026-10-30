@@ -12,12 +12,13 @@ def etkinlik_detay(request, pk):
 def anasayfa(request):
     etkinlikler = Etkinlik.objects.filter(durum='yayinda')
     return render(request, 'events/etkinlik_listesi.html', {'etkinlikler': etkinlikler})
-    from django.contrib.auth.decorators import login_required
 
-@login_required
 def etkinlik_kayit(request, pk):
+    if not request.user.is_authenticated:
+        return render(request, 'events/erisim_hatasi.html', status=403)
     etkinlik = get_object_or_404(Etkinlik, pk=pk)
     return render(request, 'events/etkinlik_detay.html', {'etkinlik': etkinlik})
+
 def kulup_listesi(request):
     return render(request, 'events/etkinlik_listesi.html', {})
 
