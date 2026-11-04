@@ -7,6 +7,7 @@ class Kategori(models.Model):
     def __str__(self):
         return self.ad
 
+
 class Etkinlik(models.Model):
     DURUM_SECENEKLER = [
         ('taslak', 'Taslak'),
@@ -24,3 +25,5 @@ class Etkinlik(models.Model):
 
     def __str__(self):
         return self.baslik
+
+

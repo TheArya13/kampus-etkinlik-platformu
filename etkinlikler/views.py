@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Etkinlik, Kulup, Kayit
+import qrcode
+import io
+import base64
 
 def anasayfa(request):
     etkinlikler = Etkinlik.objects.filter(durum='aktif').order_by('tarih')
@@ -33,4 +36,20 @@ def kulup_detay(request, pk):
     return render(request, 'etkinlikler/kulup_detay.html', {
         'kulup': kulup,
         'etkinlikler': etkinlikler
+    })
+def qr_goster(request, pk):
+    etkinlik = get_object_or_404(Etkinlik, pk=pk)
+    kayit = Kayit.objects.filter(kullanici=request.user, etkinlik=etkinlik).first()
+    
+    qr_data = f"Etkinlik: {etkinlik.baslik} | Kullanici: {request.user.username} | ID: {pk}"
+    qr = qrcode.make(qr_data)
+    
+    buffer = io.BytesIO()
+    qr.save(buffer, format='PNG')
+    qr_base64 = base64.b64encode(buffer.getvalue()).decode()
+    
+    return render(request, 'etkinlikler/qr_goster.html', {
+        'etkinlik': etkinlik,
+        'qr_base64': qr_base64,
+        'kayit': kayit,
     })

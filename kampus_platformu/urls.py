@@ -15,4 +15,5 @@ urlpatterns = [
     path('cikis/', kullanici_views.cikis, name='cikis'),
     path('profil/', kullanici_views.profil, name='profil'),
     path('etkinlikler/', etkinlik_views.etkinlik_listesi, name='etkinlik_listesi'),
+    path('etkinlik/<int:pk>/qr/', etkinlik_views.qr_goster, name='qr_goster'),
 ]
