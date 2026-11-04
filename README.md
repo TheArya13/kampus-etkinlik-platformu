@@ -25,7 +25,7 @@ git clone https://github.com/TheArya13/kampus-etkinlik-platformu.git
 cd kampus-etkinlik-platformu
 
 # Bağımlılıkları yükle
-pip install django pillow
+pip install django pillow qrcode[pil]
 
 # Veritabanını oluştur
 python manage.py migrate
@@ -42,6 +42,7 @@ python manage.py runserver
 | Hafta 4 | Veritabanı Tasarımı ve Admin Paneli | ✅ Tamamlandı |
 | Hafta 5 | Kullanıcı Yönetimi ve Kimlik Doğrulama | ✅ Tamamlandı |
 | Hafta 6 | Etkinlik Yönetimi Modülü | ✅ Tamamlandı |
+| Hafta 7 | Kayıt ve QR Yoklama Modülü | ✅ Tamamlandı |
 
 ## 🔗 Özellikler
 
