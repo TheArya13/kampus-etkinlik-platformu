@@ -7,6 +7,11 @@
 </head>
 <body>
 <div class="container mt-5">
+        {% if messages %}
+      {% for mesaj in messages %}
+        <div class="alert alert-{% if mesaj.tags == 'error' %}danger{% else %}{{ mesaj.tags }}{% endif %}">{{ mesaj }}</div>
+      {% endfor %}
+    {% endif %}
     <h1>{{ etkinlik.baslik }}</h1>
     <p><strong>Kulüp:</strong> <a href="{% url 'kulup_detay' etkinlik.kulup.pk %}">{{ etkinlik.kulup }}</a></p>
     <p><strong>Tarih:</strong> {{ etkinlik.tarih|date:"d.m.Y H:i" }}</p>
