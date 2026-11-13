@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -7,26 +8,85 @@
 </head>
 <body>
 <div class="container mt-5">
-        {% if messages %}
-      {% for mesaj in messages %}
-        <div class="alert alert-{% if mesaj.tags == 'error' %}danger{% else %}{{ mesaj.tags }}{% endif %}">{{ mesaj }}</div>
-      {% endfor %}
+
+    {% if messages %}
+        {% for mesaj in messages %}
+            <div class="alert alert-{% if mesaj.tags == 'error' %}danger{% else %}{{ mesaj.tags }}{% endif %}">
+                {{ mesaj }}
+            </div>
+        {% endfor %}
     {% endif %}
+
     <h1>{{ etkinlik.baslik }}</h1>
-    <p><strong>Kulüp:</strong> <a href="{% url 'kulup_detay' etkinlik.kulup.pk %}">{{ etkinlik.kulup }}</a></p>
+
+    <p><strong>Kulüp:</strong>
+        <a href="{% url 'kulup_detay' etkinlik.kulup.pk %}">
+            {{ etkinlik.kulup }}
+        </a>
+    </p>
+
     <p><strong>Tarih:</strong> {{ etkinlik.tarih|date:"d.m.Y H:i" }}</p>
     <p><strong>Konum:</strong> {{ etkinlik.konum }}</p>
     <p><strong>Kontenjan:</strong> {{ etkinlik.kontenjan }}</p>
     <p>{{ etkinlik.aciklama }}</p>
 
     {% if not user.is_authenticated %}
-      <a href="{% url 'giris' %}" class="btn btn-outline-primary">Giriş yap</a>
+        <a href="{% url 'giris' %}" class="btn btn-outline-primary">
+            Giriş yap
+        </a>
     {% elif kayitli %}
-      <a href="{% url 'qr_goster' etkinlik.pk %}" class="btn btn-success">QR kodunu gör</a>
+        <a href="{% url 'qr_goster' etkinlik.pk %}" class="btn btn-success">
+            QR kodunu gör
+        </a>
     {% else %}
-      <a href="{% url 'etkinlik_kayit' etkinlik.pk %}" class="btn btn-primary">Etkinliğe kayıt ol</a>
+        <a href="{% url 'etkinlik_kayit' etkinlik.pk %}" class="btn btn-primary">
+            Etkinliğe kayıt ol
+        </a>
     {% endif %}
-    <a href="{% url 'anasayfa' %}" class="btn btn-link">Geri dön</a>
+
+    <a href="{% url 'anasayfa' %}" class="btn btn-link">
+        Geri dön
+    </a>
+
+    {% if user.is_authenticated %}
+        {% if user.is_staff or etkinlik.kulup.yonetici_id == user.id %}
+            <hr class="my-4">
+
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    QR Doğrulama ve Yoklama
+                </div>
+
+                <div class="card-body">
+                    <p>Katılımcının QR kodundaki anahtarı girerek yoklama alabilirsiniz.</p>
+
+                    <form method="post" action="{% url 'qr_dogrula' etkinlik.pk %}">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="qr_kod" class="form-label">
+                                QR kodu anahtarı
+                            </label>
+
+                            <input
+                                type="text"
+                                name="qr_kod"
+                                id="qr_kod"
+                                class="form-control"
+                                placeholder="QR anahtarını girin"
+                                required
+                            >
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Katılımı doğrula
+                        </button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+
 </div>
 </body>
 </html>
