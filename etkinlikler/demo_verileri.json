@@ -1,0 +1,26 @@
+[
+{
+  "model": "etkinlikler.kulup",
+  "pk": 1,
+  "fields": {
+    "ad": "Bilgisayar Topluluðu",
+    "aciklama": "Yazýlým ve teknoloji etkinlikleri düzenleyen öðrenci kulübü.",
+    "kurulus_tarihi": "2026-11-13",
+    "logo": "",
+    "yonetici": 1
+  }
+},
+{
+  "model": "etkinlikler.etkinlik",
+  "pk": 1,
+  "fields": {
+    "baslik": "Python Atölyesi",
+    "aciklama": "Yeni baþlayanlar için Python temelleri atölyesi.",
+    "tarih": "2026-11-18T18:00:00Z",
+    "konum": "Bilgisayar Laboratuvarý 1",
+    "kulup": 1,
+    "kontenjan": 30,
+    "durum": "aktif"
+  }
+}
+]
