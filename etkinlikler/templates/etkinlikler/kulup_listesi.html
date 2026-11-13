@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kulüpler</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>🏛️ Kulüpler</h1>
+    <hr>
+
+    {% if kulupler %}
+      <div class="row">
+        {% for kulup in kulupler %}
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ kulup.ad }}</h5>
+              <p class="card-text">{{ kulup.aciklama|truncatechars:100 }}</p>
+              <a href="{% url 'kulup_detay' kulup.pk %}" class="btn btn-primary btn-sm">Detay</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-info">Henüz kulüp yok.</div>
+    {% endif %}
+
+    <a href="{% url 'anasayfa' %}" class="btn btn-link">Geri dön</a>
+</div>
+</body>
+</html>

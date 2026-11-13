@@ -37,6 +37,7 @@ def kulup_detay(request, pk):
         'kulup': kulup,
         'etkinlikler': etkinlikler
     })
+@login_required
 def qr_goster(request, pk):
     etkinlik = get_object_or_404(Etkinlik, pk=pk)
     kayit = Kayit.objects.filter(kullanici=request.user, etkinlik=etkinlik).first()

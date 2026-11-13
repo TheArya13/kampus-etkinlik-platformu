@@ -33,12 +33,12 @@
       <div class="col-md-4 mb-4">
         <div class="card shadow-sm h-100">
           <div class="card-body">
-            <h5 class="card-title">{{ etkinlik.baslik }}</h5>
+            <h5 class="card-title"><a href="{% url 'etkinlik_detay' etkinlik.pk %}" class="text-decoration-none">{{ etkinlik.baslik }}</a></h5>
             <ul class="list-unstyled mt-3">
               <li>🗓️ <strong>Tarih:</strong> {{ etkinlik.tarih|date:"d.m.Y H:i" }}</li>
               <li>📍 <strong>Konum:</strong> {{ etkinlik.konum }}</li>
-              <li>🏷️ <strong>Kategori:</strong> {{ etkinlik.kategori }}</li>
-              <li>👤 <strong>Organizatör:</strong> {{ etkinlik.organizator }}</li>
+              <li>🏷️ <strong>Kulüp:</strong> {{ etkinlik.kulup }}</li>
+              <li>👥 <strong>Kontenjan:</strong> {{ etkinlik.kontenjan }}</li>
               <li>📝 <strong>Açıklama:</strong> {{ etkinlik.aciklama }}</li>
             </ul>
               <div class="mt-3">
