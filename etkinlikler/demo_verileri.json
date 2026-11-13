@@ -3,8 +3,8 @@
   "model": "etkinlikler.kulup",
   "pk": 1,
   "fields": {
-    "ad": "Bilgisayar Topluluğu",
-    "aciklama": "Yazılım ve teknoloji etkinlikleri düzenleyen öğrenci kulübü.",
+    "ad": "Bilgisayar TopluluÄŸu",
+    "aciklama": "YazÄ±lÄ±m ve teknoloji etkinlikleri dÃ¼zenleyen Ã¶ÄŸrenci kulÃ¼bÃ¼.",
     "kurulus_tarihi": "2026-11-13",
     "logo": "",
     "yonetici": 1
@@ -14,10 +14,10 @@
   "model": "etkinlikler.etkinlik",
   "pk": 1,
   "fields": {
-    "baslik": "Python Atölyesi",
-    "aciklama": "Yeni başlayanlar için Python temelleri atölyesi.",
+    "baslik": "Python AtÃ¶lyesi",
+    "aciklama": "Yeni baÅŸlayanlar iÃ§in Python temelleri atÃ¶lyesi.",
     "tarih": "2026-11-18T18:00:00Z",
-    "konum": "Bilgisayar Laboratuvarı 1",
+    "konum": "Bilgisayar LaboratuvarÄ± 1",
     "kulup": 1,
     "kontenjan": 30,
     "durum": "aktif"
