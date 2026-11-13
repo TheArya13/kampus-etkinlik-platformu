@@ -61,14 +61,21 @@ def kulup_detay(request, pk):
 def qr_goster(request, pk):
     etkinlik = get_object_or_404(Etkinlik, pk=pk)
     kayit = Kayit.objects.filter(kullanici=request.user, etkinlik=etkinlik).first()
-    
-    qr_data = f"Etkinlik: {etkinlik.baslik} | Kullanici: {request.user.username} | ID: {pk}"
-    qr = qrcode.make(qr_data)
-    
+
+    if kayit is None:
+        messages.error(request, 'Bu etkinliğe kayıtlı olmadan QR kod alamazsınız.')
+        return redirect('etkinlik_detay', pk=pk)
+
+    if not kayit.qr_kod:
+        kayit.qr_kod = secrets.token_urlsafe(16)
+        kayit.save()
+
+    qr = qrcode.make(kayit.qr_kod)
+
     buffer = io.BytesIO()
     qr.save(buffer, format='PNG')
     qr_base64 = base64.b64encode(buffer.getvalue()).decode()
-    
+
     return render(request, 'etkinlikler/qr_goster.html', {
         'etkinlik': etkinlik,
         'qr_base64': qr_base64,
