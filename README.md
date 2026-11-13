@@ -77,3 +77,23 @@ python manage.py runserver
 Sürüm: v0.8.0
 Branch: kayit-akisi
 
+
+## Hafta 8 – Yapay Zekâ Kullanım Günlüğü
+
+**Kullanılan araç:** ChatGPT
+
+**Yapay zekâdan alınan destek:**
+- Django projesinin kontrol ve test adımlarının planlanması
+- Otomatik test kodlarının hazırlanması
+- Git komutlarının açıklanması
+- Ara sürüm raporunun düzenlenmesi
+- Vize sunumuna hazırlık
+
+**Yapılan kontroller:**
+- python manage.py check
+- python manage.py showmigrations
+- python manage.py test
+- QR sayfasının gizli pencerede kontrol edilmesi
+
+**Sonuç:** İki otomatik test başarıyla çalıştırıldı.
+Kod değişiklikleri GitHub'a gönderildi.
